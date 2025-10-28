@@ -15,13 +15,23 @@ function App() {
   
 
     async function getState(country){
+      try{
       let responseState = await axios.get(`https://crio-location-selector.onrender.com/country=${country}/states`);
       setStateList(responseState.data);
+      }
+      catch(err){
+        console.log(err);
+      }
     }
 
     async function getCity(country, state){
+      try{
       let responseCity = await axios.get(`https://crio-location-selector.onrender.com/country=${country}/state=${state}/cities`);
       setCityList(responseCity.data);
+      }
+      catch(err){
+        console.log(err);
+      }
     }
 
 
