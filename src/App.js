@@ -46,8 +46,13 @@ function App() {
   useEffect(()=>{
     
     async function getCountry(){
+      try{
       let responseCountry = await axios.get("https://crio-location-selector.onrender.com/countries");
       setCountryList(responseCountry.data);
+      }
+      catch(err){
+        console.log(err);
+      }
     }
 
     getCountry();
